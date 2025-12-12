@@ -1,20 +1,17 @@
-exports = {
-  async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert("Bookings", [
-      {
-        artistId: 1,
-        name: "John Doe",
-        email: "john@example.com",
-        quantity: 2,
-        totalPrice: 400,
-        confirmationCode: "ABC123",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ]);
-  },
+import Bookings from "../models/Bookings.js";
 
-  async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("Bookings", null, {});
-  },
+export const bookingsSeeder = async () => {
+  await Bookings.bulkCreate([
+    {
+      code: "ABC123",
+      name: "John Doe",
+      email: "john@gmail.com",
+      qty: 2,
+      artist_ids: [1],
+      status: "confirmed",
+      phone: "+212612345678",
+    },
+  ]);
+
+  console.log("✅ Bookings seeded");
 };
