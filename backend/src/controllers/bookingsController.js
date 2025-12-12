@@ -3,20 +3,21 @@ import Bookings from "../models/Bookings.js";
 import EventInfo from "../models/EventInfo.js";
 export const createBooking = async (req, res) => {
   try {
-    const { name, email, ticketsCount } = req.body;
-    if (!name || !email || !ticketsCount) {
-      return res.status(400).json({ message: "Missing required fields" });
+    const { name, email, qty = 1 } = req.body;
+    if (!name || !email) {
+      return res.status(400).json({ message: "nom et email requis" });
     }
-    const code = Math.random().toString(36).substring(2, 8).toUpperCase();
-    const booking = await Bookings.create({
-      name,
-      email,
-      ticketsCount,
-      code,
+
+    const booking = await Bookings.create({ name, email, qty });
+    res.status(201).json({
+      success: true,
+      code: booking.code,
+      message: "reservation cree !",
+      booking,
     });
-    res.status(201).json(booking);
   } catch (error) {
-    res.status(500).json({ error: "Server error" });
+    console.error(error);
+    res.status(500).json({ error: "erreur serveur" });
   }
 };
 

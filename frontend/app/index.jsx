@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import colors from "../themes/colors.js";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import { router } from "expo-router";
 export default function index() {
   return (
     <SafeAreaView style={styles.container}>
@@ -30,12 +30,12 @@ export default function index() {
         </View>
       </View>
       <View style={styles.btns}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("artistes")}>
           <View style={styles.btnArtistes}>
             <Text style={styles.textReserve}>Voir Les Artistes</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("reservation")}>
           <View style={styles.btnReserve}>
             <Ionicons name="ticket-outline" size={32} color={colors.bgApp} />
             <Text style={styles.textReserve}>reserver Billet</Text>

@@ -1,5 +1,6 @@
 import sequelize from "../config/database.js";
 import { DataTypes } from "sequelize";
+import crypto from "crypto";
 
 const Bookings = sequelize.define(
   "Bookings",
@@ -8,6 +9,8 @@ const Bookings = sequelize.define(
       type: DataTypes.STRING(12),
       unique: true,
       allowNull: false,
+      defaultValue: () =>
+        `GNA-${crypto.randomBytes(4).toString("hex").toUpperCase()}`,
     },
     name: {
       type: DataTypes.STRING(150),
@@ -16,28 +19,20 @@ const Bookings = sequelize.define(
     email: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      validate: {
-        isEmail: true,
-      },
+      validate: { isEmail: true },
     },
     qty: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    artist_ids: {
-      type: DataTypes.JSONB,
+      defaultValue: 1,
     },
     status: {
       type: DataTypes.STRING(50),
       defaultValue: "confirmed",
     },
-    phone: {
-      type: DataTypes.STRING(50),
-    },
+    phone: DataTypes.STRING,
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 export default Bookings;
