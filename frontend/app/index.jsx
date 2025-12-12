@@ -16,26 +16,31 @@ export default function index() {
 
       <View style={styles.cardShow}>
         <Image style={styles.imgCard} source={require("../assets/img5.png")} />
-        <View style={styles.infoShow}>
-          <Text style={styles.auth}>24 Auth</Text>
-          <Text style={styles.soiree}>La Grande Soirée</Text>
-          <Text style={styles.showDesc}>
-            Une nuit mystique célébrant le patrimoine Gnaoua avec les plus
-            grands Maâlems du ...
-          </Text>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.btnReserve}>
-                <Ionicons
-                  name="ticket-outline"
-                  size={32}
-                  color={colors.bgApp}
-                />
-                <Text style={styles.textReserve}>reserver Billet</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+      </View>
+      <View style={styles.infoShow}>
+        <Text style={styles.soiree}>La Grande Soirée Gnawa</Text>
+        <Text style={styles.showDesc}>
+          Une nuit mystique célébrant le patrimoine Gnaoua avec les plus grands
+          Maâlems du ...
+        </Text>
+        <Text style={styles.date}>Samedi 30 decembre 2025</Text>
+        <View style={styles.locat}>
+          <Ionicons name="location" size={28} color={colors.icons} />
+          <Text style={styles.locText}>Agadir maroc</Text>
         </View>
+      </View>
+      <View style={styles.btns}>
+        <TouchableOpacity>
+          <View style={styles.btnArtistes}>
+            <Text style={styles.textReserve}>Voir Les Artistes</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.btnReserve}>
+            <Ionicons name="ticket-outline" size={32} color={colors.bgApp} />
+            <Text style={styles.textReserve}>reserver Billet</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -43,7 +48,7 @@ export default function index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgApp,
+    backgroundColor: colors.bg,
   },
   header: {
     marginBottom: 20,
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
   },
   titre: {
     fontSize: 28,
-    color: colors.textPrimary,
+    color: colors.text,
     fontWeight: "bold",
   },
   cardShow: {
@@ -71,8 +76,6 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   infoShow: {
-    position: "absolute",
-    bottom: 10,
     paddingHorizontal: 20,
   },
   auth: {
@@ -84,16 +87,34 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   soiree: {
-    color: colors.textPrimary,
+    textAlign: "center",
+    color: colors.text,
     fontSize: 34,
+    marginVertical: 16,
   },
   showDesc: {
-    color: colors.textMuted,
+    color: colors.text2,
     fontSize: 18,
     lineHeight: 28,
   },
+  btns: {
+    flex: 1,
+    justifyContent: "flex-end",
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
   btnReserve: {
-    backgroundColor: colors.textPrimary,
+    backgroundColor: colors.text,
+    flexDirection: "row",
+    gap: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    paddingVertical: 8,
+    marginTop: 14,
+  },
+  btnArtistes: {
+    backgroundColor: colors.gold,
     flexDirection: "row",
     gap: 10,
     justifyContent: "center",
@@ -106,5 +127,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "800",
     textTransform: "uppercase",
+  },
+  locat: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
+  },
+  locText: {
+    color: colors.icons,
+    fontSize: 20,
+  },
+  date: {
+    color: colors.text,
+    textAlign: "center",
+    marginVertical: 20,
+    fontSize: 20,
+    fontWeight: "300",
   },
 });
