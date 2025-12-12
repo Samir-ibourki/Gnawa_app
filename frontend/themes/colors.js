@@ -1,9 +1,9 @@
-const colors = {
+const Colors = {
   gold: "#FFD700",
-  bgApp: "#09090b",
-  cardSurf: "#18181b",
-  textPrimary: "#FFFFFF",
-  textMuted: "#9CA3AF",
+  bg: "#09090b",
+  card: "#18181b",
+  text: "#FFFFFF",
+  text2: "#9CA3AF",
   icons: "#6B7280",
 };
-export default colors;
+export default Colors;
