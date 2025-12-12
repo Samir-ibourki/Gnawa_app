@@ -25,4 +25,5 @@ const Artistes = sequelize.define(
     timestamps: true,
   }
 );
+
 export default Artistes;

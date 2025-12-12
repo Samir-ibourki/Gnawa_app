@@ -13,6 +13,7 @@ app.use(express.json());
 import "./src/models/EventInfo.js";
 import "./src/models/Bookings.js";
 import "./src/models/Artistes.js";
+import setupAssociations from "./src/config/associations.js";
 
 app.use("/api/event", eventRoutes);
 app.use("/api/artists", artistesRoutes);
@@ -21,6 +22,7 @@ app.use("/api/bookings", bookingsRoutes);
 sequelize
   .sync({ alter: true })
   .then(async () => {
+    setupAssociations();
     console.log("Database connecte !");
 
     const artistCount = await sequelize.models.Artistes.count();
