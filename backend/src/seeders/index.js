@@ -14,7 +14,7 @@ export const runSeeders = async () => {
         date: new Date("2025-12-25T20:00:00"),
         venue: "Agadir, Maroc",
         banner_url:
-          "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/1DX_0649.jpg",
+          "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/1DX_0249.jpg",
       });
       console.log("Event cree");
     }

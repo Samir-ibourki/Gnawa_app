@@ -6,14 +6,14 @@ export const useBookingStore = create(
   persist(
     (set) => ({
       lastBooking: null,
-      bookings: [], // pour mes billets
+      bookings: [],
       setLastBooking: (booking) => set({ lastBooking: booking }),
       addBooking: (booking) =>
         set((state) => ({ bookings: [...state.bookings, booking] })),
       clearBookings: () => set({ bookings: [], lastBooking: null }),
     }),
     {
-      name: "gnawa-bookings", // key f AsyncStorage
+      name: "gnawa-bookings",
       getStorage: () => AsyncStorage,
     }
   )
