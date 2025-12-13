@@ -1,8 +1,15 @@
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../../themes/colors.js";
 import { useArtisteById } from "../../hooks/useArtisteById.js";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 
 export default function ArtisteDetail() {
   const { id } = useLocalSearchParams();
@@ -33,6 +40,17 @@ export default function ArtisteDetail() {
           </View>
         </View>
       </ScrollView>
+      <TouchableOpacity
+        style={styles.reserveButton}
+        onPress={() =>
+          router.push({
+            pathname: "reservation",
+            params: { artistId: data.id, artistName: data.name },
+          })
+        }
+      >
+        <Text style={styles.reserveText}>Réserver pour {data.name}</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -95,4 +113,12 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "600",
   },
+  reserveButton: {
+    backgroundColor: Colors.gold,
+    paddingVertical: 20,
+    borderRadius: 16,
+    alignItems: "center",
+    margin: 20,
+  },
+  reserveText: { color: "#000", fontSize: 22, fontWeight: "bold" },
 });

@@ -5,6 +5,9 @@ import crypto from "crypto";
 const Bookings = sequelize.define(
   "Bookings",
   {
+    artistId: {
+      type: DataTypes.INTEGER,
+    },
     code: {
       type: DataTypes.STRING(12),
       unique: true,

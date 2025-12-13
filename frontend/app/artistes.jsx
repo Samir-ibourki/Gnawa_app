@@ -41,7 +41,7 @@ export default function Artistes() {
       />
       <View style={styles.cardInfo}>
         <Text style={styles.artistName}>{item.name}</Text>
-        <Text style={styles.artistBio}>{item.bio?.substring(0, 100)}...</Text>
+        <Text style={styles.artistBio}>{item.bio?.substring(0, 50)}...</Text>
         <View style={styles.timeRow}>
           <Ionicons name="time-outline" size={18} color={Colors.gold} />
           <Text style={styles.timeText}>
@@ -76,13 +76,37 @@ export default function Artistes() {
   );
 }
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.bg },
-  center: { flex: 1, justifyContent: "center", alignItems: "center" },
-  loadingText: { color: Colors.text, fontSize: 18 },
-  errorText: { color: "red", fontSize: 18 },
-  header: { padding: 20, paddingTop: 40 },
-  title: { color: Colors.text, fontSize: 36, fontWeight: "bold" },
-  subtitle: { color: Colors.text2, fontSize: 18, marginTop: 8 },
+  container: {
+    flex: 1,
+    backgroundColor: Colors.bg,
+  },
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    color: Colors.text,
+    fontSize: 18,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 18,
+  },
+  header: {
+    padding: 20,
+    paddingTop: 40,
+  },
+  title: {
+    color: Colors.text,
+    fontSize: 36,
+    fontWeight: "bold",
+  },
+  subtitle: {
+    color: Colors.text2,
+    fontSize: 18,
+    marginTop: 8,
+  },
   list: { padding: 20 },
   card: {
     flexDirection: "row",
@@ -96,8 +120,16 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   artistImage: { width: 140, height: 180 },
-  cardInfo: { flex: 1, padding: 20, justifyContent: "center" },
-  artistName: { color: Colors.text, fontSize: 22, fontWeight: "bold" },
+  cardInfo: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+  },
+  artistName: {
+    color: Colors.text,
+    fontSize: 22,
+    fontWeight: "bold",
+  },
   artistBio: {
     color: Colors.text2,
     fontSize: 15,

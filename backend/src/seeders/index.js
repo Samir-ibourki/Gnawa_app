@@ -25,7 +25,7 @@ export const runSeeders = async () => {
       await Artistes.bulkCreate([
         {
           name: "Maâlem Hamid",
-          bio: "Le maître incontesté du Guembri, originaire d'Essaouira. Plus de 40 ans de tradition pure.",
+          bio: "Né à Essaouira, ce Maâlem perpétue la tradition gnawa depuis plus de 40 ans. Maître incontesté du Guembri, il est connu pour sa capacité à emmener le public dans une transe spirituelle profonde. Il a collaboré avec des légendes du jazz international.",
           photo_url:
             "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/@maalem-omar-hayat-23-06-2023DSCF3921.jpg",
           schedule: { start: "21:00", end: "22:30" },
