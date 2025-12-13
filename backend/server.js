@@ -20,7 +20,7 @@ app.use("/api/artists", artistesRoutes);
 app.use("/api/bookings", bookingsRoutes);
 
 sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(async () => {
     setupAssociations();
     console.log("Database connecte !");

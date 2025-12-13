@@ -46,10 +46,7 @@ export const getBookingsByEmail = async (req, res) => {
 
     const bookings = await Bookings.findAll({
       where: { email },
-      include: [
-        { model: Artistes, as: "artists" },
-        { model: EventInfo, as: "event" },
-      ],
+      include: [{ model: Artistes, as: "artists" }],
     });
 
     if (bookings.length === 0) {

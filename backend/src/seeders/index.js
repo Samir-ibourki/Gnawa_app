@@ -10,10 +10,11 @@ export const runSeeders = async () => {
       await EventInfo.create({
         title: "La Grande Soirée Gnawa",
         description:
-          "Une nuit mystique célébrant le patrimoine Gnawa avec les plus grands Maâlems du Maroc",
-        date: "2025-08-24T20:00:00Z",
+          "Une nuit mystique célébrant le patrimoine Gnawa avec les plus grands Maâlems du Maroc ...",
+        date: new Date("2025-12-25T20:00:00"),
         venue: "Agadir, Maroc",
-        banner_url: "img5.png",
+        banner_url:
+          "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/1DX_0649.jpg",
       });
       console.log("Event cree");
     }
@@ -25,21 +26,24 @@ export const runSeeders = async () => {
         {
           name: "Maâlem Hamid",
           bio: "Le maître incontesté du Guembri, originaire d'Essaouira. Plus de 40 ans de tradition pure.",
-          photo_url: "https://i.imgur.com/hamid-big.jpg",
+          photo_url:
+            "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/@maalem-omar-hayat-23-06-2023DSCF3921.jpg",
           schedule: { start: "21:00", end: "22:30" },
           country_or_origin: "Maroc",
         },
         {
           name: "Group Sud Fusion",
           bio: "Fusion explosive entre Gnawa traditionnel et jazz moderne.",
-          photo_url: "img4.png",
+          photo_url:
+            "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/1DX_0649.jpg",
           schedule: { start: "22:45", end: "00:00" },
           country_or_origin: "Maroc",
         },
         {
           name: "Troup Agadir",
           bio: "Ouverture traditionnelle avec les danses et rythmes du Souss.",
-          photo_url: "img3.png",
+          photo_url:
+            "https://www.festival-gnaoua.net/wp-content/uploads/2024/05/3G5A8797.jpg",
           schedule: { start: "20:00", end: "20:45" },
           country_or_origin: "Maroc",
         },

@@ -3,7 +3,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import colors from "../themes/colors.js";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { router } from "expo-router";
-export default function index() {
+import { useEvent } from "../hooks/useEvent.js";
+export default function Index() {
+  const { data, isLoading, error } = useEvent();
+
+  if (isLoading)
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  if (error)
+    return (
+      <View>
+        <Text>Error loding event </Text>
+      </View>
+    );
+
   return (
     <SafeAreaView style={styles.container}>
       {/* header loc + titre */}
@@ -15,18 +31,21 @@ export default function index() {
       {/* card d show */}
 
       <View style={styles.cardShow}>
-        <Image style={styles.imgCard} source={require("../assets/img5.png")} />
+        <Image style={styles.imgCard} source={{ uri: data?.banner_url }} />
       </View>
       <View style={styles.infoShow}>
-        <Text style={styles.soiree}>La Grande Soirée Gnawa</Text>
-        <Text style={styles.showDesc}>
-          Une nuit mystique célébrant le patrimoine Gnaoua avec les plus grands
-          Maâlems du ...
+        <Text style={styles.soiree}>{data?.title}</Text>
+        <Text style={styles.showDesc}>{data?.description}</Text>
+        <Text style={styles.date}>
+          {new Date(data?.date).toLocaleDateString("fr-FR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
         </Text>
-        <Text style={styles.date}>Samedi 30 decembre 2025</Text>
         <View style={styles.locat}>
           <Ionicons name="location" size={28} color={colors.icons} />
-          <Text style={styles.locText}>Agadir maroc</Text>
+          <Text style={styles.locText}>{data?.venue}</Text>
         </View>
       </View>
       <View style={styles.btns}>
@@ -142,7 +161,7 @@ const styles = StyleSheet.create({
     color: colors.text,
     textAlign: "center",
     marginVertical: 20,
-    fontSize: 20,
-    fontWeight: "300",
+    fontSize: 30,
+    fontWeight: "200",
   },
 });

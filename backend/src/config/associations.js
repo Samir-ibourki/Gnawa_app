@@ -14,9 +14,6 @@ const setupAssociations = () => {
     foreignKey: "artistId",
   });
 
-  Bookings.belongsTo(EventInfo, { as: "event", foreignKey: "eventId" });
-  EventInfo.hasMany(Bookings, { as: "bookings", foreignKey: "eventId" });
-
   console.log("Associations définies sans erreur !");
 };
 
